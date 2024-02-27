@@ -1,49 +1,51 @@
-import { useState, useEffect } from "react"
-import boatsArray from "./data/boats"
-import "./App.css"
-import { Routes, Route } from "react-router-dom"
-import Home from "./components/Home"
-import Nav from "./components/Nav"
-import Listings from "./components/Listings"
-import BoatDetails from "./components/BoatDetails"
-import ThemePark from "./components/ThemePark"
-import WaterPark from "./components/WaterPark"
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import boatsArray from './data/boats'
+import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import Home from './components/Home'
+import Nav from './components/Nav'
+import Listings from './components/Listings'
+import BoatDetails from './components/BoatDetails'
+import ThemePark from './components/ThemePark'
+import WaterPark from './components/WaterPark'
 
 const App = () => {
   // The boatsArray is passed into state as the initial state for 'boats' in App.js
   const [boats, setBoats] = useState([])
   const [newBoat, setNewBoat] = useState({
-    id: "",
-    name: "",
-    image: "",
-    description: "",
-    openingTime: "",
-    location: "",
+    id: '',
+    name: '',
+    image: '',
+    description: '',
+    openingTime: '',
+    location: '',
     noOfRides: null,
-    mainAttraction:"",
+    mainAttraction: ''
   })
 
   const getAllListings = async () => {
     let allListings = await axios.get('http://localhost:3001/theme')
-    setBoats(allListings)
+    console.log(allListings.data)
+    setBoats(allListings.data)
   }
 
+  
   useEffect(() => {
     getAllListings()
   }, [])
 
-  
   const addBoat = (e) => {
     e.preventDefault()
     const currentBoats = boats
     const createdBoat = {
       ...newBoat,
       id: parseInt(boats.length + 1),
-      price: parseInt(newBoat.price),
+      price: parseInt(newBoat.price)
     }
     currentBoats.push(createdBoat)
     setBoats(currentBoats)
-    setNewBoat({ id: "", name: "", img: "", description: "", price: "" })
+    setNewBoat({ id: '', name: '', img: '', description: '', price: '' })
   }
 
   const handleChange = (e) => {
@@ -73,7 +75,7 @@ const App = () => {
           />
           {/* <Route path="/newWaterPark" element={<WaterPark />} /> */}
         </Routes>
-            </main>
+      </main>
     </div>
   )
 }

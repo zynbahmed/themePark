@@ -4,18 +4,20 @@ import { Link, useParams } from 'react-router-dom'
 const BoatDetails = (props) => {
   const [boat, setBoat] = useState('')
 
-  let { id } = useParams()
- 
+  let { _id } = useParams()
 
   useEffect(() => {
-    let selectedBoat = props.boats.find((boat) => boat.id === parseInt(id))
-    setBoat(selectedBoat)
-  }, [props.boats, id])
+    const themeDetails=async ()=>{
+
+      let selectedBoat = props.boats.find((boat) => boat._id === parseInt(_id))
+      setBoat(selectedBoat)
+    }
+  }, [props.boats, _id])
 
   return boat ? (
     <div className="detail">
       <div className="detail-header">
-        <img src={boat.img} alt={boat.name} />
+        <img src={boat.image} alt={boat.name} />
         <div className="listing-name">
           <h1>{boat.name}</h1>
         </div>

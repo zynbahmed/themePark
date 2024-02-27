@@ -4,9 +4,9 @@ const Listings = (props) => {
   return (
     <div className="boat-grid">
       {props.boats.map((boat) => (
-        <div className="boat-card" key={boat.id}>
-          <Link to={`${boat.id}`}>
-            <img className="listing-img" src={boat.img} alt={boat.name} />
+        <div className="boat-card" key={boat._id}>
+          <Link to={`${boat._id}`}>
+            <img className="listing-img" src={boat.image} alt={boat.name} />
             <h3>{boat.name}</h3>
           </Link>
         </div>
