@@ -35,23 +35,26 @@ const App = () => {
     getAllListings()
   }, [])
 
-  const addBoat = (e) => {
-    e.preventDefault()
-    const currentBoats = boats
-    const createdBoat = {
-      ...newBoat,
-      id: parseInt(boats.length + 1),
-      price: parseInt(newBoat.price)
-    }
-    currentBoats.push(createdBoat)
-    setBoats(currentBoats)
-    setNewBoat({ id: '', name: '', img: '', description: '', price: '' })
-    console.log(newBoat)
-  }
+  // const addBoat = (e) => {
+  //   e.preventDefault()
+  //   const currentBoats = boats
+  //   const createdBoat = {
+  //     ...newBoat,}
+
+  //   setBoats(currentBoats)
+  //   setNewBoat({ id: '', name: '', img: '', description: '', price: '' })
+  //   console.log(newBoat)
+  // }
 
   const handleChange = (e) => {
     setNewBoat({ ...newBoat, [e.target.name]: e.target.value })
+
     // return createdBoat.id
+  }
+  const addTheme = async () => {
+    let res = await axios.post('http://localhost:3001/theme', newBoat)
+    console.log(res)
+    setBoats([...boats, res.data])
   }
 
   return (
@@ -73,7 +76,7 @@ const App = () => {
               <ThemePark
                 newBoat={newBoat}
                 handleChange={handleChange}
-                addBoat={addBoat}
+                addTheme={addTheme}
               />
             }
           />
@@ -83,7 +86,7 @@ const App = () => {
               <WaterPark
                 newBoat={newBoat}
                 handleChange={handleChange}
-                addBoat={addBoat}
+                addTheme={addTheme}
               />
             }
           />
