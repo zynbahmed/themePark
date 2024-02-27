@@ -21,7 +21,6 @@ const App = () => {
     openingTime: '',
     location: '',
     noOfRides: 0,
-
     mainAttraction: ''
   })
 
@@ -31,20 +30,16 @@ const App = () => {
     setBoats(allListings.data)
   }
 
+  const getAllListingswater = async () => {
+    let allListings = await axios.get('http://localhost:3001/water')
+
+    setBoats(allListings.data)
+  }
+
   useEffect(() => {
     getAllListings()
+    getAllListingswater()
   }, [])
-
-  // const addBoat = (e) => {
-  //   e.preventDefault()
-  //   const currentBoats = boats
-  //   const createdBoat = {
-  //     ...newBoat,}
-
-  //   setBoats(currentBoats)
-  //   setNewBoat({ id: '', name: '', img: '', description: '', price: '' })
-  //   console.log(newBoat)
-  // }
 
   const handleChange = (e) => {
     setNewBoat({ ...newBoat, [e.target.name]: e.target.value })
@@ -53,6 +48,11 @@ const App = () => {
   }
   const addTheme = async () => {
     let res = await axios.post('http://localhost:3001/theme', newBoat)
+    console.log(res)
+    setBoats([...boats, res.data])
+  }
+  const addWater = async () => {
+    let res = await axios.post('http://localhost:3001/water', newBoat)
     console.log(res)
     setBoats([...boats, res.data])
   }
@@ -68,6 +68,11 @@ const App = () => {
           <Route path="/theme" element={<Listings boats={boats} />} />
           <Route
             path="/theme/:themePark_id"
+            element={<BoatDetails boats={boats} />}
+          />
+          <Route path="/water" element={<Listings boats={boats} />} />
+          <Route
+            path="/water/:waterPark_id"
             element={<BoatDetails boats={boats} />}
           />
           <Route
@@ -86,7 +91,7 @@ const App = () => {
               <WaterPark
                 newBoat={newBoat}
                 handleChange={handleChange}
-                addTheme={addTheme}
+                addWater={addWater}
               />
             }
           />
