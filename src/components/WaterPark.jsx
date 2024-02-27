@@ -22,7 +22,7 @@ const WaterPark = (props) => {
 
   return (
     <div>
-      <h1>Add A New Water Park</h1>
+      <h1 className='formTitle'>Add A New Water Park</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
