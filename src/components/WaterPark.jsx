@@ -22,14 +22,14 @@ const WaterPark = (props) => {
 
   return (
     <div>
-      <h1>Add A New Water Park Listing</h1>
+      <h1>Add A New Water Park</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={newWater.name}
           onChange={props.handleChangeWater}
           name={'name'}
-          placeholder={'name'}
+          placeholder={'Enter The Name of The Water Park'}
         />
 
         <input
@@ -37,7 +37,7 @@ const WaterPark = (props) => {
           value={newWater.location}
           onChange={props.handleChangeWater}
           name={'location'}
-          placeholder={'location'}
+          placeholder={'Enter The Location of The Water Park'}
         />
 
         <input
@@ -45,7 +45,7 @@ const WaterPark = (props) => {
           value={newWater.openingTime}
           onChange={props.handleChangeWater}
           name={'openingTime'}
-          placeholder={'opening Time'}
+          placeholder={'Enter The Opening Time of The Water Park'}
         />
 
         <input
@@ -53,7 +53,7 @@ const WaterPark = (props) => {
           value={newWater.noOfSlides}
           onChange={props.handleChangeWater}
           name={'noOfSlides'}
-          placeholder={'Number of Slides'}
+          placeholder={'Enter The Number of Slides of The Water Park'}
         />
 
         <input
@@ -61,21 +61,22 @@ const WaterPark = (props) => {
           value={newWater.mainAttraction}
           onChange={props.handleChangeWater}
           name={'mainAttraction'}
-          placeholder={'Main Attraction'}
+          placeholder={'Enter The Main Attrcation of The Water Park'}
         />
         <input
           type="text"
           value={newWater.parkTheme}
           onChange={props.handleChangeWater}
           name={'parkTheme'}
-          placeholder={'Water Park Theme'}
+          placeholder={'Enter The Theme of The Water Park'}
         />
-        <input
+        <textarea
           type="text"
           value={newWater.description}
           onChange={props.handleChangeWater}
           name={'description'}
-          placeholder={'Enter a description'}
+          placeholder={'Enter The Description of The Water Park'}
+          cols="117"
         />
 
         <input
@@ -83,7 +84,7 @@ const WaterPark = (props) => {
           value={newWater.image}
           onChange={props.handleChangeWater}
           name={'image'}
-          placeholder={'image'}
+          placeholder={'Enter The Image of The Water Park'}
         />
         <Link to="/water">
           <button onSubmit={props.addWater} onClick={props.addWater}>
