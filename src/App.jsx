@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import boatsArray from "./data/boats"
 import "./App.css"
 import { Routes, Route } from "react-router-dom"
@@ -11,7 +11,7 @@ import WaterPark from "./components/WaterPark"
 
 const App = () => {
   // The boatsArray is passed into state as the initial state for 'boats' in App.js
-  const [boats, setBoats] = useState(boatsArray)
+  const [boats, setBoats] = useState([])
   const [newBoat, setNewBoat] = useState({
     id: "",
     name: "",
@@ -20,8 +20,19 @@ const App = () => {
     openingTime: "",
     location: "",
     noOfRides: null,
-    mainAttraction: "",
+
+    mainAttraction:"",
   })
+
+  const getAllListings = async () => {
+    let allListings = await axios.get('http://localhost:3001/theme')
+    setBoats(allListings)
+  }
+
+  useEffect(() => {
+    getAllListings()
+  }, [])
+
 
   const addBoat = (e) => {
     e.preventDefault()
