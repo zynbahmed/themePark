@@ -21,7 +21,8 @@ const App = () => {
     openingTime: '',
     location: '',
     noOfRides: null,
-    mainAttraction: ''
+
+    mainAttraction:"",
   })
 
   const getAllListings = async () => {
@@ -34,6 +35,7 @@ const App = () => {
   useEffect(() => {
     getAllListings()
   }, [])
+
 
   const addBoat = (e) => {
     e.preventDefault()
@@ -73,7 +75,16 @@ const App = () => {
               />
             }
           />
-          {/* <Route path="/newWaterPark" element={<WaterPark />} /> */}
+          <Route
+            path="/newWaterPark"
+            element={
+              <WaterPark
+                newBoat={newBoat}
+                handleChange={handleChange}
+                addBoat={addBoat}
+              />
+            }
+          />
         </Routes>
       </main>
     </div>
