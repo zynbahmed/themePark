@@ -1,18 +1,28 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const BoatDetails = (props) => {
   const [boat, setBoat] = useState('')
 
-  let { _id } = useParams()
+  let { themePark_id } = useParams()
+  console.log(themePark_id)
 
   useEffect(() => {
-    const themeDetails=async ()=>{
-
-      let selectedBoat = props.boats.find((boat) => boat._id === parseInt(_id))
-      setBoat(selectedBoat)
+    const themeDetails = async () => {
+      let selectedTheme = await axios.get(
+        `http://localhost:3001/theme/${themePark_id}`
+      )
+      setBoat(selectedTheme.data)
+      console.log(selectedTheme.data)
     }
-  }, [props.boats, _id])
+
+    themeDetails()
+  }, [props.boats, themePark_id])
+
+  const handleDelete = async () => {
+    await axios.delete(`http://localhost:3001/theme/${themePark_id}`)
+  }
 
   return boat ? (
     <div className="detail">
@@ -24,12 +34,16 @@ const BoatDetails = (props) => {
       </div>
       <div className="info-wrapper">
         <div className="listing-header">
-          <h3>Price: ${boat.price}</h3>
-          <h3>Boat ID: {boat.id}</h3>
+          <h3>Boat ID: {boat._id}</h3>
         </div>
         <p>{boat.description}</p>
       </div>
-      <Link to="/Listings">Back</Link>
+      <Link to="/theme">Back</Link>
+      <Link to="/theme">
+        <button onSubmit={handleDelete} onClick={handleDelete}>
+          Delete Themepark
+        </button>
+      </Link>
     </div>
   ) : null
 }

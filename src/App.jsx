@@ -20,22 +20,20 @@ const App = () => {
     description: '',
     openingTime: '',
     location: '',
-    noOfRides: null,
+    noOfRides: 0,
 
-    mainAttraction:"",
+    mainAttraction: ''
   })
 
   const getAllListings = async () => {
     let allListings = await axios.get('http://localhost:3001/theme')
-    console.log(allListings.data)
+
     setBoats(allListings.data)
   }
 
-  
   useEffect(() => {
     getAllListings()
   }, [])
-
 
   const addBoat = (e) => {
     e.preventDefault()
@@ -48,6 +46,7 @@ const App = () => {
     currentBoats.push(createdBoat)
     setBoats(currentBoats)
     setNewBoat({ id: '', name: '', img: '', description: '', price: '' })
+    console.log(newBoat)
   }
 
   const handleChange = (e) => {
@@ -63,8 +62,11 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Listings" element={<Listings boats={boats} />} />
-          <Route path="/Listings/:id" element={<BoatDetails boats={boats} />} />
+          <Route path="/theme" element={<Listings boats={boats} />} />
+          <Route
+            path="/theme/:themePark_id"
+            element={<BoatDetails boats={boats} />}
+          />
           <Route
             path="/newThemePark"
             element={
