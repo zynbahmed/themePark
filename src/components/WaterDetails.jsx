@@ -32,12 +32,23 @@ const WaterDetails = (props) => {
         </div>
       </div>
       <div className="info-wrapper">
-        <div className="listing-header">
-          <h3>Boat ID: {water._id}</h3>
-        </div>
+        <p>
+          <strong>Location: </strong> {water.location}
+        </p>
+        <p>
+          <strong>Opening Time: </strong>
+          {water.openingTime}
+        </p>
+        <p>
+          <strong>Number of Slides: </strong>
+          {water.noOfSlides}
+        </p>
+        <p>
+          <strong>Park Theme: </strong>
+          {water.parkTheme}
+        </p>
         <p>{water.description}</p>
       </div>
-      <Link to="/water">Back</Link>
       <Link to="/water">
         <button onSubmit={handleDelete} onClick={handleDelete}>
           Delete Water Park

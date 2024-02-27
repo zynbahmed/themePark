@@ -1,18 +1,28 @@
 import { Link, useNavigate } from 'react-router-dom'
 
 const WaterPark = (props) => {
+  const newWater = props.newWater
+
   const handleSubmit = (event) => {
     event.preventDefault()
     // let navigate = useNavigate()
     props.addWater()
     // navigate('/theme')
+    props.setNewWater = {
+      name: '',
+      image: '',
+      description: '',
+      openingTime: '',
+      location: '',
+      noOfRides: 0,
+      mainAttraction: '',
+      parkTheme: ''
+    }
   }
-
-  const newWater = props.newWater
 
   return (
     <div>
-      <h1>Add A New Boat Listing</h1>
+      <h1>Add A New Water Park Listing</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -40,10 +50,10 @@ const WaterPark = (props) => {
 
         <input
           type="number"
-          value={newWater.noOfRides}
+          value={newWater.noOfSlides}
           onChange={props.handleChangeWater}
-          name={'noOfRides'}
-          placeholder={'number of rides'}
+          name={'noOfSlides'}
+          placeholder={'Number of Slides'}
         />
 
         <input
@@ -52,6 +62,20 @@ const WaterPark = (props) => {
           onChange={props.handleChangeWater}
           name={'mainAttraction'}
           placeholder={'Main Attraction'}
+        />
+        <input
+          type="text"
+          value={newWater.parkTheme}
+          onChange={props.handleChangeWater}
+          name={'parkTheme'}
+          placeholder={'Water Park Theme'}
+        />
+        <input
+          type="text"
+          value={newWater.description}
+          onChange={props.handleChangeWater}
+          name={'description'}
+          placeholder={'Enter a description'}
         />
 
         <input

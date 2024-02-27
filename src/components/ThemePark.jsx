@@ -6,6 +6,13 @@ const ThemePark = (props) => {
     // let navigate = useNavigate()
     props.addTheme()
     // navigate('/theme')
+    props.setNewBoat = {
+      name: '',
+      image: '',
+      description: '',
+      location: '',
+      mainAttraction: ''
+    }
   }
 
   const newBoat = props.newBoat
@@ -32,26 +39,17 @@ const ThemePark = (props) => {
 
         <input
           type="text"
-          value={newBoat.openingTime}
-          onChange={props.handleChange}
-          name={'openingTime'}
-          placeholder={'opening Time'}
-        />
-
-        <input
-          type="number"
-          value={newBoat.noOfRides}
-          onChange={props.handleChange}
-          name={'noOfRides'}
-          placeholder={'number of rides'}
-        />
-
-        <input
-          type="text"
           value={newBoat.mainAttraction}
           onChange={props.handleChange}
           name={'mainAttraction'}
           placeholder={'Main Attraction'}
+        />
+        <input
+          type="text"
+          value={newBoat.description}
+          onChange={props.handleChange}
+          name={'description'}
+          placeholder={'Enter a description'}
         />
 
         <input

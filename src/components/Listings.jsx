@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const Listings = (props) => {
   return (
@@ -11,7 +12,6 @@ const Listings = (props) => {
           </Link>
         </div>
       ))}
-      <Link to="/">Back</Link>
     </div>
   )
 }
