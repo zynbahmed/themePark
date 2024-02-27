@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const ThemePark = (props) => {
   const handleSubmit = (event) => {
@@ -61,8 +61,11 @@ const ThemePark = (props) => {
           name={'image'}
           placeholder={'image'}
         />
-
-        <button onSubmit={props.addTheme}>Submit</button>
+        <Link to="/theme">
+          <button onSubmit={props.addTheme} onClick={props.addTheme}>
+            Submit
+          </button>
+        </Link>
       </form>
     </div>
   )
