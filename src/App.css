@@ -88,6 +88,11 @@ h4 {
   margin-left: 1em;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .boat-grid {
   display: flex;
   flex-wrap: wrap;
@@ -98,25 +103,25 @@ h4 {
   padding: 1em;
   width: 18em;
   height: 15em;
-  background-color: rgb(36, 47, 85);
+  background-color: #181c2b;
   border-radius: 0.5em;
   margin: 1em;
   justify-content: space-around;
-  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.527);
+  box-shadow: 0 0 0.25em #1e2644;
   color: white;
   font-family: 'Georgia';
   cursor: pointer;
 }
 
 .boat-card:hover {
-  transform: scale(1.01);
+  transform: scale(5.01);
 }
 
 .boat-card img {
   width: 100%;
   height: 10em;
   object-fit: center;
-  box-shadow: inset 0 0 1em rgb(0, 0, 0);
+  box-shadow: inset 0 0 1em black;
 }
 
 .listings {
