@@ -4,11 +4,11 @@ const WaterPark = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     // let navigate = useNavigate()
-    props.addTheme()
+    props.addWater()
     // navigate('/theme')
   }
 
-  const newBoat = props.newBoat
+  const newWater = props.newWater
 
   return (
     <div>
@@ -16,53 +16,53 @@ const WaterPark = (props) => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={newBoat.name}
-          onChange={props.handleChange}
+          value={newWater.name}
+          onChange={props.handleChangeWater}
           name={'name'}
           placeholder={'name'}
         />
 
         <input
           type="text"
-          value={newBoat.location}
-          onChange={props.handleChange}
+          value={newWater.location}
+          onChange={props.handleChangeWater}
           name={'location'}
           placeholder={'location'}
         />
 
         <input
           type="text"
-          value={newBoat.openingTime}
-          onChange={props.handleChange}
+          value={newWater.openingTime}
+          onChange={props.handleChangeWater}
           name={'openingTime'}
           placeholder={'opening Time'}
         />
 
         <input
           type="number"
-          value={newBoat.noOfRides}
-          onChange={props.handleChange}
+          value={newWater.noOfRides}
+          onChange={props.handleChangeWater}
           name={'noOfRides'}
           placeholder={'number of rides'}
         />
 
         <input
           type="text"
-          value={newBoat.mainAttraction}
-          onChange={props.handleChange}
+          value={newWater.mainAttraction}
+          onChange={props.handleChangeWater}
           name={'mainAttraction'}
           placeholder={'Main Attraction'}
         />
 
         <input
           type="text"
-          value={newBoat.image}
-          onChange={props.handleChange}
+          value={newWater.image}
+          onChange={props.handleChangeWater}
           name={'image'}
           placeholder={'image'}
         />
         <Link to="/water">
-          <button onSubmit={props.addTheme} onClick={props.addTheme}>
+          <button onSubmit={props.addWater} onClick={props.addWater}>
             Submit
           </button>
         </Link>

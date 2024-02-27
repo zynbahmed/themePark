@@ -6,7 +6,9 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Nav from './components/Nav'
 import Listings from './components/Listings'
+import WaterListings from './components/WaterListings'
 import BoatDetails from './components/BoatDetails'
+import WaterDetails from './components/WaterDetails'
 import ThemePark from './components/ThemePark'
 import WaterPark from './components/WaterPark'
 
@@ -24,16 +26,28 @@ const App = () => {
     mainAttraction: ''
   })
 
+  const [waters, setWaters] = useState([])
+  const [newWater, setNewWater] = useState({
+    id: '',
+    name: '',
+    image: '',
+    description: '',
+    openingTime: '',
+    location: '',
+    noOfRides: 0,
+    mainAttraction: ''
+  })
+
   const getAllListings = async () => {
     let allListings = await axios.get('http://localhost:3001/theme')
-
+    console.log(allListings.data)
     setBoats(allListings.data)
   }
 
   const getAllListingswater = async () => {
     let allListings = await axios.get('http://localhost:3001/water')
 
-    setBoats(allListings.data)
+    setWaters(allListings.data)
   }
 
   useEffect(() => {
@@ -46,15 +60,21 @@ const App = () => {
 
     // return createdBoat.id
   }
+
+  const handleChangeWater = (e) => {
+    setNewWater({ ...newWater, [e.target.name]: e.target.value })
+
+    // return createdBoat.id
+  }
   const addTheme = async () => {
     let res = await axios.post('http://localhost:3001/theme', newBoat)
     console.log(res)
     setBoats([...boats, res.data])
   }
   const addWater = async () => {
-    let res = await axios.post('http://localhost:3001/water', newBoat)
+    let res = await axios.post('http://localhost:3001/water', newWater)
     console.log(res)
-    setBoats([...boats, res.data])
+    setWaters([...waters, res.data])
   }
 
   return (
@@ -70,10 +90,10 @@ const App = () => {
             path="/theme/:themePark_id"
             element={<BoatDetails boats={boats} />}
           />
-          <Route path="/water" element={<Listings boats={boats} />} />
+          <Route path="/water" element={<WaterListings waters={waters} />} />
           <Route
             path="/water/:waterPark_id"
-            element={<BoatDetails boats={boats} />}
+            element={<WaterDetails waters={waters} />}
           />
           <Route
             path="/newThemePark"
@@ -89,8 +109,8 @@ const App = () => {
             path="/newWaterPark"
             element={
               <WaterPark
-                newBoat={newBoat}
-                handleChange={handleChange}
+                newWater={newWater}
+                handleChangeWater={handleChangeWater}
                 addWater={addWater}
               />
             }
