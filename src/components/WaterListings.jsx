@@ -11,7 +11,6 @@ const WaterListings = (props) => {
           </Link>
         </div>
       ))}
-      <Link to="/">Back</Link>
     </div>
   )
 }

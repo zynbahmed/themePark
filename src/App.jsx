@@ -16,26 +16,23 @@ const App = () => {
   // The boatsArray is passed into state as the initial state for 'boats' in App.js
   const [boats, setBoats] = useState([])
   const [newBoat, setNewBoat] = useState({
-    id: '',
     name: '',
     image: '',
     description: '',
-    openingTime: '',
     location: '',
-    noOfRides: 0,
     mainAttraction: ''
   })
 
   const [waters, setWaters] = useState([])
   const [newWater, setNewWater] = useState({
-    id: '',
     name: '',
     image: '',
     description: '',
     openingTime: '',
     location: '',
     noOfRides: 0,
-    mainAttraction: ''
+    mainAttraction: '',
+    parkTheme: ''
   })
 
   const getAllListings = async () => {
@@ -53,7 +50,7 @@ const App = () => {
   useEffect(() => {
     getAllListings()
     getAllListingswater()
-  }, [])
+  }, [boats, waters])
 
   const handleChange = (e) => {
     setNewBoat({ ...newBoat, [e.target.name]: e.target.value })
@@ -100,6 +97,7 @@ const App = () => {
             element={
               <ThemePark
                 newBoat={newBoat}
+                setNewBoat={setNewBoat}
                 handleChange={handleChange}
                 addTheme={addTheme}
               />
@@ -110,6 +108,7 @@ const App = () => {
             element={
               <WaterPark
                 newWater={newWater}
+                setNewWater={setNewWater}
                 handleChangeWater={handleChangeWater}
                 addWater={addWater}
               />

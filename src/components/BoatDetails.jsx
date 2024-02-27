@@ -33,12 +33,16 @@ const BoatDetails = (props) => {
         </div>
       </div>
       <div className="info-wrapper">
-        <div className="listing-header">
-          <h3>Boat ID: {boat._id}</h3>
-        </div>
+        <p>
+          <strong>Location: </strong>
+          {boat.location}
+        </p>
+        <p>
+          <strong>Main Attraction: </strong>
+          {boat.mainAttraction}
+        </p>
         <p>{boat.description}</p>
       </div>
-      <Link to="/theme">Back</Link>
       <Link to="/theme">
         <button onSubmit={handleDelete} onClick={handleDelete}>
           Delete Themepark
