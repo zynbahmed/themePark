@@ -20,12 +20,9 @@ const App = () => {
     openingTime: "",
     location: "",
     noOfRides: null,
-    mainAttraction:"",
-
-
+    mainAttraction: "",
   })
 
-  
   const addBoat = (e) => {
     e.preventDefault()
     const currentBoats = boats
@@ -64,9 +61,18 @@ const App = () => {
               />
             }
           />
-          {/* <Route path="/newWaterPark" element={<WaterPark />} /> */}
+          <Route
+            path="/newWaterPark"
+            element={
+              <WaterPark
+                newBoat={newBoat}
+                handleChange={handleChange}
+                addBoat={addBoat}
+              />
+            }
+          />
         </Routes>
-            </main>
+      </main>
     </div>
   )
 }

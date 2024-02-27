@@ -12,15 +12,57 @@ const WaterPark = (props) => {
   return (
     <div>
       <h1>Add A New Boat Listing</h1>
-      <form onSubmit={ handleSubmit }>
-      <input type="text" value={newBoat.name} onChange={ props.handleChange} name={'name'} placeholder={'name'} />
-      <input type="text" value={newBoat.img} onChange={ props.handleChange} name={'img'} placeholder={'image'} />
-      <input type="text-area" value={newBoat.description} onChange={ props.handleChange} name={'description'} placeholder={'description'} />
-      <input type="text" value={newBoat.price} onChange={ props.handleChange} name={'price'} placeholder={'price'} />
-      <button>Submit</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={newBoat.name}
+          onChange={props.handleChange}
+          name={"name"}
+          placeholder={"name"}
+        />
 
-      <form className="" onSubmit={handleSubmit}></form>
+        <input
+          type="text"
+          value={newBoat.location}
+          onChange={props.handleChange}
+          name={"location"}
+          placeholder={"location"}
+        />
+
+        <input
+          type="text"
+          value={newBoat.openingTime}
+          onChange={props.handleChange}
+          name={"openingTime"}
+          placeholder={"opening Time"}
+        />
+
+        <input
+          type="number"
+          value={newBoat.noOfRides}
+          onChange={props.handleChange}
+          name={"noOfRides"}
+          placeholder={"number of rides"}
+        />
+
+        <input
+          type="text"
+          value={newBoat.mainAttraction}
+          onChange={props.handleChange}
+          name={"mainAttraction"}
+          placeholder={"Main Attraction"}
+        />
+
+        <input
+          type="text"
+          value={newBoat.image}
+          onChange={props.handleChange}
+          name={"image"}
+          placeholder={"image"}
+        />
+
+        <button>Submit</button>
+      </form>
     </div>
   )
 }
