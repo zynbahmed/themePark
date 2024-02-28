@@ -19,7 +19,7 @@ const ThemePark = (props) => {
 
   return (
     <div>
-      <h1 className='formTitle'>Add A New Theme Park</h1>
+      <h1 className="formTitle">Add A New Theme Park</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -44,12 +44,12 @@ const ThemePark = (props) => {
           name={'mainAttraction'}
           placeholder={'Enter The Main Attraction of The Water Park'}
         />
-        <textarea 
+        <textarea
           value={newBoat.description}
           onChange={props.handleChange}
           name={'description'}
           placeholder={'Enter The Description of The Water Park'}
-          cols="117"
+          cols="96"
         />
 
         <input

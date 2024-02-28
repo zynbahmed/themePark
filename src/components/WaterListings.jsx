@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const WaterListings = (props) => {
   return (

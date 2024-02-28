@@ -22,6 +22,7 @@ const BoatDetails = (props) => {
 
   const handleDelete = async () => {
     await axios.delete(`http://localhost:3001/theme/${themePark_id}`)
+    
   }
 
   return boat ? (

@@ -2,6 +2,10 @@ import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 
 const Listings = (props) => {
+  useEffect(() => {
+    props.getAllListings()
+  }, [])
+
   return (
     <div className="boat-grid">
       {props.boats.map((boat) => (

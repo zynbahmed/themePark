@@ -30,7 +30,7 @@ const App = () => {
     description: '',
     openingTime: '',
     location: '',
-    noOfRides: 0,
+    noOfSlides: 0,
     mainAttraction: '',
     parkTheme: ''
   })
@@ -82,7 +82,7 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/theme" element={<Listings boats={boats} />} />
+          <Route path="/theme" element={<Listings boats={boats} getAllListings={getAllListings}/>} />
           <Route
             path="/theme/:themePark_id"
             element={<BoatDetails boats={boats} />}
@@ -90,7 +90,7 @@ const App = () => {
           <Route path="/water" element={<WaterListings waters={waters} />} />
           <Route
             path="/water/:waterPark_id"
-            element={<WaterDetails waters={waters} />}
+            element={<WaterDetails waters={waters} setWaters={setWaters} />}
           />
           <Route
             path="/newThemePark"
