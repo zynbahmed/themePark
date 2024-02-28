@@ -1,21 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom'
 
-const ThemePark = (props) => {
+const ThemePark = ({ newBoat, setNewBoat, handleChange, addTheme }) => {
+  const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault()
-    // let navigate = useNavigate()
-    props.addTheme()
-    // navigate('/theme')
-    props.setNewBoat = {
+    addTheme()
+    setNewBoat({
       name: '',
       image: '',
       description: '',
       location: '',
       mainAttraction: ''
-    }
+    })
+    navigate('/theme')
   }
-
-  const newBoat = props.newBoat
 
   return (
     <div>
@@ -24,7 +22,7 @@ const ThemePark = (props) => {
         <input
           type="text"
           value={newBoat.name}
-          onChange={props.handleChange}
+          onChange={handleChange}
           name={'name'}
           placeholder={'Enter The Name of The Water Park'}
         />
@@ -32,7 +30,7 @@ const ThemePark = (props) => {
         <input
           type="text"
           value={newBoat.location}
-          onChange={props.handleChange}
+          onChange={handleChange}
           name={'location'}
           placeholder={'Enter The Location of The Water Park'}
         />
@@ -40,13 +38,13 @@ const ThemePark = (props) => {
         <input
           type="text"
           value={newBoat.mainAttraction}
-          onChange={props.handleChange}
+          onChange={handleChange}
           name={'mainAttraction'}
           placeholder={'Enter The Main Attraction of The Water Park'}
         />
         <textarea
           value={newBoat.description}
-          onChange={props.handleChange}
+          onChange={handleChange}
           name={'description'}
           placeholder={'Enter The Description of The Water Park'}
           cols="96"
@@ -55,15 +53,13 @@ const ThemePark = (props) => {
         <input
           type="text"
           value={newBoat.image}
-          onChange={props.handleChange}
+          onChange={handleChange}
           name={'image'}
           placeholder={'Enter The Image of The Water Park'}
         />
-        <Link to="/theme">
-          <button onSubmit={props.addTheme} onClick={props.addTheme}>
-            Submit
-          </button>
-        </Link>
+        {/* <Link to="/theme"> */}
+        <button>Submit</button>
+        {/* </Link> */}
       </form>
     </div>
   )

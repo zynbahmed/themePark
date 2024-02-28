@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const WaterDetails = (props) => {
   const [water, setWater] = useState('')
 
   let { waterPark_id } = useParams()
+
+  let navigate = useNavigate()
 
   useEffect(() => {
     const themeDetails = async () => {
@@ -21,6 +23,7 @@ const WaterDetails = (props) => {
 
   const handleDelete = async () => {
     await axios.delete(`http://localhost:3001/water/${waterPark_id}`)
+    navigate('/water')
   }
 
   return water ? (
@@ -49,11 +52,9 @@ const WaterDetails = (props) => {
         </p>
         <p>{water.description}</p>
       </div>
-      <Link to="/water">
         <button onSubmit={handleDelete} onClick={handleDelete}>
           Delete Water Park
         </button>
-      </Link>
     </div>
   ) : null
 }

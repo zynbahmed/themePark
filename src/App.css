@@ -167,7 +167,7 @@ form {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 90%;
+  width: 100%;
   height: 100%;
   margin: 2em auto;
   border-radius: 0.25em;
@@ -211,12 +211,11 @@ button {
   margin-top: 1em;
 }
 
-.home-vertical{
+.home-vertical {
   flex-direction: column;
-  align-items:center;
-  justify-content:center;
+  align-items: center;
+  justify-content: center;
   /* height: 98vh; */
-
 }
 
 #family-section {
