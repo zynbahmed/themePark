@@ -168,7 +168,7 @@ form {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: 90%;
   height: 100%;
   margin: 2em auto;
   border-radius: 0.25em;
@@ -210,4 +210,8 @@ button {
   font-weight: bold;
   cursor: pointer;
   margin-top: 1em;
+}
+
+textarea{
+  width: 60vw;
 }
