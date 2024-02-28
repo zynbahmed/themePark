@@ -38,7 +38,6 @@ div {
   margin-top: 5em;
 }
 
-
 .listing-name {
   min-width: 30em;
   display: flex;
@@ -116,7 +115,7 @@ a {
 }
 
 .boat-card:hover {
-  transform: scale(5.01);
+  transform: scale(1.03);
 }
 
 .boat-card img {
@@ -196,7 +195,7 @@ form textarea {
 }
 
 button,
-input, 
+input,
 textarea {
   outline: none;
   border: none;

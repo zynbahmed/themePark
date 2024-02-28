@@ -14,7 +14,7 @@ const WaterPark = (props) => {
       description: '',
       openingTime: '',
       location: '',
-      noOfRides: 0,
+      noOfSlides: 0,
       mainAttraction: '',
       parkTheme: ''
     }
@@ -22,7 +22,7 @@ const WaterPark = (props) => {
 
   return (
     <div>
-      <h1 className='formTitle'>Add A New Water Park</h1>
+      <h1 className="formTitle">Add A New Water Park</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -76,7 +76,7 @@ const WaterPark = (props) => {
           onChange={props.handleChangeWater}
           name={'description'}
           placeholder={'Enter The Description of The Water Park'}
-          cols="117"
+          cols="96"
         />
 
         <input
