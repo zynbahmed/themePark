@@ -50,7 +50,7 @@ const App = () => {
   useEffect(() => {
     getAllListings()
     getAllListingswater()
-  }, [boats, waters])
+  }, [])
 
   const handleChange = (e) => {
     setNewBoat({ ...newBoat, [e.target.name]: e.target.value })
