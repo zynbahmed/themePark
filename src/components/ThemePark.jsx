@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom"
 
 const ThemePark = (props) => {
+
+  
   const handleSubmit = (e) => {
     let navigate = useNavigate()
     props.addBoat(e)
@@ -11,7 +13,7 @@ const ThemePark = (props) => {
 
   return (
     <div>
-      <h1>Add A New Boat Listing</h1>
+      <h1>Add A New Theme Park</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

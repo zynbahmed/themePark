@@ -8,6 +8,7 @@ import Listings from "./components/Listings"
 import BoatDetails from "./components/BoatDetails"
 import ThemePark from "./components/ThemePark"
 import WaterPark from "./components/WaterPark"
+import axios from  "axios"
 
 const App = () => {
   // The boatsArray is passed into state as the initial state for 'boats' in App.js
@@ -19,8 +20,7 @@ const App = () => {
     description: "",
     openingTime: "",
     location: "",
-    noOfRides: null,
-
+    noOfRides: "",
     mainAttraction:"",
   })
 
@@ -32,7 +32,6 @@ const App = () => {
   useEffect(() => {
     getAllListings()
   }, [])
-
 
   const addBoat = (e) => {
     e.preventDefault()
