@@ -1,25 +1,35 @@
 import { Link, useNavigate } from 'react-router-dom'
 
 const WaterPark = (props) => {
+  const newWater = props.newWater
+
   const handleSubmit = (event) => {
     event.preventDefault()
     // let navigate = useNavigate()
     props.addWater()
     // navigate('/theme')
+    props.setNewWater = {
+      name: '',
+      image: '',
+      description: '',
+      openingTime: '',
+      location: '',
+      noOfRides: 0,
+      mainAttraction: '',
+      parkTheme: ''
+    }
   }
-
-  const newWater = props.newWater
 
   return (
     <div>
-      <h1>Add A New Boat Listing</h1>
+      <h1 className='formTitle'>Add A New Water Park</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={newWater.name}
           onChange={props.handleChangeWater}
           name={'name'}
-          placeholder={'name'}
+          placeholder={'Enter The Name of The Water Park'}
         />
 
         <input
@@ -27,7 +37,7 @@ const WaterPark = (props) => {
           value={newWater.location}
           onChange={props.handleChangeWater}
           name={'location'}
-          placeholder={'location'}
+          placeholder={'Enter The Location of The Water Park'}
         />
 
         <input
@@ -35,15 +45,15 @@ const WaterPark = (props) => {
           value={newWater.openingTime}
           onChange={props.handleChangeWater}
           name={'openingTime'}
-          placeholder={'opening Time'}
+          placeholder={'Enter The Opening Time of The Water Park'}
         />
 
         <input
           type="number"
-          value={newWater.noOfRides}
+          value={newWater.noOfSlides}
           onChange={props.handleChangeWater}
-          name={'noOfRides'}
-          placeholder={'number of rides'}
+          name={'noOfSlides'}
+          placeholder={'Enter The Number of Slides of The Water Park'}
         />
 
         <input
@@ -51,7 +61,22 @@ const WaterPark = (props) => {
           value={newWater.mainAttraction}
           onChange={props.handleChangeWater}
           name={'mainAttraction'}
-          placeholder={'Main Attraction'}
+          placeholder={'Enter The Main Attrcation of The Water Park'}
+        />
+        <input
+          type="text"
+          value={newWater.parkTheme}
+          onChange={props.handleChangeWater}
+          name={'parkTheme'}
+          placeholder={'Enter The Theme of The Water Park'}
+        />
+        <textarea
+          type="text"
+          value={newWater.description}
+          onChange={props.handleChangeWater}
+          name={'description'}
+          placeholder={'Enter The Description of The Water Park'}
+          cols="117"
         />
 
         <input
@@ -59,7 +84,7 @@ const WaterPark = (props) => {
           value={newWater.image}
           onChange={props.handleChangeWater}
           name={'image'}
-          placeholder={'image'}
+          placeholder={'Enter The Image of The Water Park'}
         />
         <Link to="/water">
           <button onSubmit={props.addWater} onClick={props.addWater}>
