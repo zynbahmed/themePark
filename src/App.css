@@ -212,6 +212,20 @@ button {
   margin-top: 1em;
 }
 
-textarea{
-  width: 60vw;
+.home-vertical{
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+  /* height: 98vh; */
+
+}
+
+#family-section {
+  height: 100vh; /* Set height to full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: lightgreen; */
+  /* background image */
 }

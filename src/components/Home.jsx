@@ -1,20 +1,37 @@
-import '../App.css'
+import "../App.css"
 
 const Home = () => {
+
+var  scrollToFamilySection = () => {
+    const familySection = document.getElementById('family-section');
+    familySection.scrollIntoView({ behavior: 'smooth' });
+  };
+
+
   return (
-    <div className="home">
-      <div>
-        <img
-          style={{ display: 'block', maxWidth: '100%' }}
-          src="https://static.vecteezy.com/system/resources/previews/004/871/170/non_2x/circus-theme-park-on-isolated-background-free-vector.jpg"
-          alt="logo"
-        />
+    <div className="home-vertical">
+      <div className="home">
+        <div>
+          <img
+            style={{ display: "block", maxWidth: "100%" }}
+            src="https://static.vecteezy.com/system/resources/previews/004/871/170/non_2x/circus-theme-park-on-isolated-background-free-vector.jpg"
+            alt="logo"
+          />
+        </div>
+        <div onClick={scrollToFamilySection}>
+          <h1>Welcome to Parks</h1>
+          <h2>
+            Experience the thrill and excitement of our world-class rides and
+            attractions.
+          </h2>
+        </div>
       </div>
-      <div>
-        <h1>Welcome to Parks</h1>
-        <h2>
-        Experience the thrill and excitement of our world-class rides and attractions.
-        </h2>
+      <div id="family-section">
+        <h2 >Family Fun</h2>
+        <p>
+          Create unforgettable memories with your loved ones in our
+          family-friendly environment.
+        </p>
       </div>
     </div>
     // <div className="container">
